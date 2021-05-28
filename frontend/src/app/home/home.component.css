@@ -1,0 +1,34 @@
+.home img
+{
+    width: 100%;
+    height: 865px;
+    object-position: center;
+    object-fit:cover;
+    filter: blur(4px);
+}
+
+.homecontent
+{
+    position: absolute;
+    top: 50%;
+    left: 43%;
+    margin: -100px 0 0 -200px;
+}
+
+.homecontent h2
+{
+    text-align: center;
+}
+
+.homecontent h5
+{
+    text-align: center;
+}
+
+.btngroup
+{
+    position: absolute;
+    top: 100%;
+    left: 39%;
+   
+}
