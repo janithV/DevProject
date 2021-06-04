@@ -1,0 +1,12 @@
+.heading{
+    padding: 30px 0;
+    text-align: center;
+}
+
+.cardlist > * {
+    margin-top: 32px;
+  }
+
+.container{
+    margin-left: 13%;
+}
