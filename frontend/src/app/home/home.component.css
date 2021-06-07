@@ -1,7 +1,7 @@
 .home img
 {
     width: 100%;
-    height: 865px;
+    height: 600px;
     object-position: center;
     object-fit:cover;
     filter: blur(4px);
@@ -10,19 +10,24 @@
 .homecontent
 {
     position: absolute;
-    top: 50%;
-    left: 43%;
+    align-content: center;
+    top: 40%;
+    left: 40%;
     margin: -100px 0 0 -200px;
+    font-family: sans-serif;
 }
 
 .homecontent h2
 {
     text-align: center;
+    font-weight: 600;
+    
 }
 
 .homecontent h5
 {
     text-align: center;
+    font-weight: 500;
 }
 
 .btngroup

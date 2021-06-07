@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { from } from 'rxjs';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { from } from 'rxjs';
     BrowseComponent,
     ContactusComponent,
     FooterComponent,
-    CompanyCardComponent
+    CompanyCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
