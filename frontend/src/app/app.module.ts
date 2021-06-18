@@ -12,6 +12,10 @@ import { FooterComponent } from './footer/footer.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { InternprofileComponent } from './internprofile/internprofile.component';
+import { CompanybrowseComponent } from './companybrowse/companybrowse.component';
+import { ReviewCardComponent } from './review-card/review-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { LoginComponent } from './login/login.component';
     ContactusComponent,
     FooterComponent,
     CompanyCardComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    InternprofileComponent,
+    CompanybrowseComponent,
+    ReviewCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,83 @@
+<h1>WSO2</h1>
+<div class="container" id="faqcontainer">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <h3>About Us</h3>
+            <p>WSO2 solutions give enterprises the flexibility to deploy applications and services on-premises, 
+                on private or public clouds, or in hybrid environments and easily migrate between them as needed. And because 
+                all of the products are pre-integrated, enterprises can focus on value-added services and get to market faster.
+            </p>
+            <p>
+                Apply for carrer paths in Software Engineering, DevOps and Quality Assuarance
+            </p>
+            
+        </div>
+        <div class="row">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-class" routerLink="profile">Apply</button>
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="assets/ws02.jpeg" alt="" srcset="">
+    </div>
+  </div>
+  <div class="modal-dialog modal-dialog-centered">
+   
+  </div>
+</div>
+
+<div id="formcontainer">
+  <h1>Reviews and Ratings</h1>
+  <h2>Post a review and share your experience</h2>
+  <div class="container" id="formcontainer2">
+    <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column" 
+    fxLayoutGap="32px"
+    fxLayoutAlign="flex-start"
+    class="cardlist">
+    
+        <ng-container *ngFor="let num of [1,2,3,4,5,6,7,8]">
+            <app-review-card 
+                fxFlex="1 0 0" >
+            </app-review-card>
+        </ng-container>
+    </div>
+
+  </div>
+</div>
+
+<div class="container" id="starcontainer">
+  <h1>Rate us!</h1>
+  <h3>Your ratings will help us create proper recommendations</h3>
+  <div class="star-widget">
+    <input type="radio" name="rate" id="rate-5" >
+    <label for="rate-5" class="fas fa-star"></label>
+    <input type="radio" name="rate" id="rate-4" >
+    <label for="rate-4" class="fas fa-star"></label>
+    <input type="radio" name="rate" id="rate-3" >
+    <label for="rate-3" class="fas fa-star"></label>
+    <input type="radio" name="rate" id="rate-2" >
+    <label for="rate-2" class="fas fa-star"></label>
+    <input type="radio" name="rate" id="rate-1" >
+    <label for="rate-1" class="fas fa-star"></label>
+    
+  </div>
+  <form action="">
+    <div class="textarea">
+      <textarea name="" id="" cols="50" placeholder="Describe your experience"></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-class" routerLink="profile">Submit</button>
+    </div>
+  </form>
+</div>
+
