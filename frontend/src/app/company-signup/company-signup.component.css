@@ -71,12 +71,3 @@ h3{
 .form-check-input:checked{
     background-color: #ab3bd1;
 }
-
-input.ng-invalid.ng-touched{
-    border: 1px solid red;
-}
-
-.badge{
-    color: black;
-    background-color:#ffc107 ;
-}

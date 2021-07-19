@@ -2,10 +2,8 @@ const express = require('express');
 
 const app = express();
 
-app.use((req, res, next)=>{
-    res.status(200).json({
-        message: 'server is working'
-    });
-});
+const browseRoute=require('./api/routes/browse');
+
+app.use('/browse',browseRoute);
 
 module.exports=app;

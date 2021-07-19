@@ -69,35 +69,67 @@
   <h1>Facing A Problem?</h1>
   <h2>Lets Get In Touch Now</h2>
   <div class="container" id="formcontainer2">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="col mb-3">
         <label class="form-label">First Name</label>
-        <input type="text" class="form-control" placeholder="First Name" required>
+        <input type="text" 
+        class="form-control" 
+        placeholder="First Name" 
+        required
+        ngModel
+        name="fname">
       </div>
       <div class="col mb-3">
         <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" placeholder="Last Name" required>
+        <input type="text" 
+        class="form-control" 
+        placeholder="Last Name" 
+        required
+        ngModel
+        name="lname">
       </div>
     </div>
     <div class="col mb-3">
       <label class="form-label">Your Email Address</label>
-      <input type="email" class="form-control" placeholder="name@email.com" required>
+      <input type="email" 
+      class="form-control" 
+      placeholder="name@email.com" 
+      required
+      ngModel
+      email
+      #email="ngModel"
+      name="email">
+      <span class="badge badge-pill badge-warning" *ngIf="!email.valid && email.touched">please enter a valid email</span>
     </div>
     <div class="col mb-3">
       <label class="form-label">Subject</label>
-      <input type="text" class="form-control" placeholder="Subject">
+      <input type="text" 
+      class="form-control" 
+      placeholder="Subject"
+      ngModel
+      name="subject">
     </div>
     <div class="col mb-3">
       <label class="form-label">Your Message</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required
-        placeholder="Write your message here..."></textarea>
+      <textarea 
+      class="form-control" 
+      id="exampleFormControlTextarea1" 
+      rows="4" 
+      required
+      placeholder="Write your message here..."
+      ngModel
+      name="content"></textarea>
     </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button 
+    type="submit" 
+    class="btn btn-primary"
+    [disabled]="!f.valid">
       Submit
     </button>
-
+  
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -109,11 +141,11 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="https://mail.google.com" target="_blank" class="btn btn-primary">Continue</a>
+            <a href="https://mail.google.com" target="_blank" class="btn btn-primary" type="submit">Continue</a>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> -->
+  </form>
   </div>
 </div>

@@ -96,3 +96,12 @@ img{
     width: 440px;
     margin-top: 15px;
 }
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.badge{
+    color: black;
+    background-color:#ffc107 ;
+}

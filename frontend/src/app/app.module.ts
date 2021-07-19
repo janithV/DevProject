@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FlexLayoutModule} from '@angular/flex-layout'
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +18,10 @@ import { SignupComponent } from './signup/signup.component';
 import { InternprofileComponent } from './internprofile/internprofile.component';
 import { CompanybrowseComponent } from './companybrowse/companybrowse.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
+import { CompanySignupComponent } from './company-signup/company-signup.component';
+import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,14 +36,18 @@ import { ReviewCardComponent } from './review-card/review-card.component';
     SignupComponent,
     InternprofileComponent,
     CompanybrowseComponent,
-    ReviewCardComponent
+    ReviewCardComponent,
+    CompanySignupComponent,
+    CompanyprofileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

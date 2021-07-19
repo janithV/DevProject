@@ -40,6 +40,15 @@
     box-shadow: none;
 }
 
+.form-check-input{
+    border-color: #ab3bd1;
+    box-shadow: none;
+}
+
+.form-check-input:checked{
+    background-color: #ab3bd1;
+}
+
 .form-switch input{
     border-color:#0011FA ;
     box-shadow: none;

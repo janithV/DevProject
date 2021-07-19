@@ -1,118 +1,122 @@
 <div id="formcontainer">
     <h2>Registration</h2>
-    <form action="">
-<div class="container" id="formcontainer2">
-    <div class="row" id="row1">
-        <h3>Personal Details</h3>
-        <div class="row">
-            <div class="col mb-3">
-                <label class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="First Name" required>
-            </div>
-            <div class="col mb-3">
-                <label class="form-label">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" required>
-            </div>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Your Email Address</label>
-            <input type="email" class="form-control" placeholder="name@email.com" required>
-        </div>
-        <div class="row">
-            <div class="col mb-3">
-                <label class="form-label">Date of Birth</label>
-                <input type="date" class="form-control" required>
-            </div>
-            <div class="col mb-3">
-                <label class="form-label">Contact Number</label>
-                <input type="text" class="form-control" required placeholder="10 digit number" pattern="[7-9]{1}[0-9]{9}">
-            </div>
-        </div>
-        <div class="row">
-            <label class="form-label">Gender</label>
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Male</label>
+    <p>Register as a company?</p>
+    <button class="btn btn-class" (click)="onTypeChange()">Click Me!</button>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="container" id="formcontainer2">
+            <div class="row" id="row1">
+                <h3>Personal Details</h3>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" required ngModel name="fname">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" required ngModel name="lname">
+                    </div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                        value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                <div class="col mb-3">
+                    <label class="form-label">Your Email Address</label>
+                    <input type="email" class="form-control" placeholder="name@email.com" required ngModel email name="email" #email="ngModel">
+                    <span class="badge badge-pill badge-warning" *ngIf="!email.valid && email.touched">please enter a valid email</span>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                        value="option3">
-                    <label class="form-check-label" for="inlineRadio3">Rather not say</label>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" required ngModel name="date">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" required placeholder="10 digit number"
+                            pattern="[0-9]{1}[0-9]{9}" ngModel name="contact">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="row2">
-        <h3>Academic Details</h3>
-        <div class="col mb-3">
-            <label class="form-label">University</label>
-            <input type="email" class="form-control" placeholder="University of.." required>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Degree</label>
-            <input type="email" class="form-control" placeholder="Your degree" required>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Specialization</label>
-            <input type="email" class="form-control" placeholder="Specialization" required>
-        </div>
-    </div>
-    <div class="row" id="row3">
-        <h3>Skills</h3>
-        <div class="row">
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Software Development</label>
+                <div class="row">
+                    <label class="form-label">Gender</label>
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" ngModel id="inlineRadio1"
+                                value="male">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" ngModel id="inlineRadio2"
+                                value="female">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" ngModel id="inlineRadio3"
+                                value="rather not say">
+                            <label class="form-check-label" for="inlineRadio3">Rather not say</label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Front-End Development</label>
+            <div class="row" id="row2">
+                <h3>Academic Details</h3>
+                <div class="col mb-3">
+                    <label class="form-label">University</label>
+                    <input type="email" class="form-control" placeholder="University of.." required ngModel name="university">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label">Degree</label>
+                    <input type="text" class="form-control" placeholder="Your degree" required ngModel name="degree">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label">Specialization</label>
+                    <input type="text" class="form-control" placeholder="Specialization" required ngModel name="special">
                 </div>
             </div>
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Back-End Development</label>
+            <div class="row" id="row3">
+                <h3>Skills</h3>
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="Softwaredev" ngModel value="sd">
+                            <label class="form-check-label" for="inlineCheckbox1">Software Development</label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="frontend" ngModel value="fe">
+                            <label class="form-check-label" for="inlineCheckbox2">Front-End Development</label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="backend" ngModel value="be">
+                            <label class="form-check-label" for="inlineCheckbox3">Back-End Development</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox4">Fullstack Development</label>
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="fullstack" ngModel value="fs">
+                            <label class="form-check-label" for="inlineCheckbox4">Fullstack Development</label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="web" ngModel value="wd">
+                            <label class="form-check-label" for="inlineCheckbox5">Web Development</label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="mobile" ngModel value="mad">
+                            <label class="form-check-label" for="inlineCheckbox6">Mobile Application Development</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox5">Web Development</label>
-                </div>
-            </div>
-            <div class="col mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox6">Mobile Application Development</label>
-                </div>
-            </div>
-        </div>
 
-    </div >
-    <div class="d-grid gap-2 d-md-block">
-        <button type="reset" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#exampleModal" >Clear</button>&nbsp;
-        <button type="submit" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#exampleModal" >Submit</button>
-      </div>
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="reset" class="btn btn-class" (click)="onClear()">Clear</button>&nbsp;
+                <button type="submit" class="btn btn-class" [disabled]="!form.valid">Submit</button>
+            </div>
 
-</div>
-</form>
+        </div>
+    </form>
 </div>

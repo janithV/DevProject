@@ -1,0 +1,81 @@
+
+<div id="formcontainer">
+    <h2>Company Registration</h2>
+    <p>Register as an Intern?</p>
+    <button class="btn btn-class" (click)="onTypeChange()">Click Me!</button>
+    <form >
+        <div class="container" id="formcontainer2">
+            <div class="row" id="row1">
+                <h3>Company Details</h3>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Company Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" required>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label">Your Email Address</label>
+                    <input type="email" class="form-control" placeholder="name@email.com" required>
+                </div>
+                <div class="col mb-3">
+                    <label for="formFile" class="form-label">Company logo</label>
+                    <input class="form-control" type="file" id="formFile" required>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <div class="col mb-3">
+                        <label class="form-label">Confirm password</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">About</label><br>
+                        <textarea id="abouttext" name="about" rows="4" cols="100" class="form-control" placeholder="Describe your company..."></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Facebook link</label>
+                        <input type="text" class="form-control" placeholder="Facebook" required>
+                    </div>
+                    <div class="col mb-3">
+                        <label class="form-label">Twitter link</label>
+                        <input type="text" class="form-control" placeholder="Twitter" required>
+                    </div>
+                    <div class="col mb-3">
+                        <label class="form-label">LinkedIn link</label>
+                        <input type="text" class="form-control" placeholder="LinkedIn" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="row2">
+                <h3>Hiring</h3>
+                <div class="col mb-3">
+                    <label class="form-label">Specializations Hired</label>
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Select options'"
+                    [settings]="dropdownSettings"
+                    [data]="dropdownList"
+                    [(ngModel)]="selectedItems"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+    
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="reset" class="btn btn-class">Clear</button>&nbsp;
+                <button type="submit" class="btn btn-class">Submit</button>
+            </div>
+
+        </div>
+    </form>
+</div>
