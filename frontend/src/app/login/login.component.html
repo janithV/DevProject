@@ -5,24 +5,43 @@
         </div>
         <div class="col-md-6" id="col2">
             <h3 class="signin-text mb-3">Sign In</h3>
-            <form action="">
+            <form  (ngSubmit)="onSubmit()" #form="ngForm">
                 <div class="mb-3">
                     <label class="form-check-label" for="checkbox">Company login? Check Me! &nbsp; </label>
-                    <input class="form-check-input" type="checkbox" id="checkbox" checked>
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="checkbox" 
+                    checked
+                    ngModel
+                    name="check">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email Address</label>
-                    <input type="email" class="form-control" placeholder="" required>
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    placeholder="Enter your email" 
+                    required
+                    email
+                    ngModel
+                    name="email"
+                    #email="ngModel">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" required>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    required
+                    ngModel
+                    name="password">
                 </div>
                 <div class="mb-3 form-switch">
                     <input class="form-check-input" type="checkbox" id="checkbox1" checked>
                     <label class="form-check-label" for="checkbox1">&nbsp; Remember Me</label>
                 </div>
-                    <button type="submit" class="btn btn-class" routerLink="profile">Log in</button>
+                    <button type="submit" class="btn btn-class" [disabled]="!form.valid">Log in</button>
             </form>
         </div>
     </div>

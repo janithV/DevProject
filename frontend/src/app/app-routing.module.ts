@@ -11,16 +11,16 @@ import { CompanybrowseComponent } from './companybrowse/companybrowse.component'
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { CompanySignupComponent } from './company-signup/company-signup.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
-import { AuthGuard } from "./auth-guard.service";
+// import { AuthGuard } from "./auth-guard.service";
 
 const appRoutes:Routes=[
     { path: '', component:HomeComponent},
     { path: 'browse', component:BrowseComponent},
     { path: 'contact-us', component:ContactusComponent},
-    { path: 'login', canActivate:[AuthGuard], component:LoginComponent},
+    { path: 'login',  component:LoginComponent},
     { path: 'signup', component:SignupComponent},
     { path: 'company-signup', component:CompanySignupComponent},
-    { path: 'login/profile', component:CompanyprofileComponent},
+    { path: 'companyprofile', component:CompanyprofileComponent},
     { path: 'review', component:ReviewCardComponent},
     
 ]

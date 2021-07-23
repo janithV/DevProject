@@ -1,5 +1,6 @@
 const express = require('express');
 const router= express.Router();
+const conn=require('../../connection')
 
 router.get('/',(req,res,next)=>{
     res.status(200).json({
@@ -19,6 +20,10 @@ router.get('/:companyId',(req,res,next)=>{
         message:'company found',
         ID:id
     });
+});
+
+router.get('/check',(req,res,next)=>{
+    conn.connect();
 });
 
 module.exports=router;

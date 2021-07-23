@@ -5,24 +5,19 @@ const cors = require('cors');
 const app = express();
 
 const browseRoute=require('./api/routes/browse');
+const internRoute=require('./api/routes/intern');
+const companyRoute =require('./api/routes/company');
+const authRoute=require('./api/routes/signin');
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-// app.use((req,res,next)=>{
-//     res.header('Access-Control-Allow-Origin','*');
-//     res.header('Access-Control-Allow-Headers',"Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
-//     if (req.method==='OPTIONS'){
-//         res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
-//         return res.status(200).json({});
-//     }
-//     next();
-// });
-
 app.use('/browse',browseRoute);
+app.use('/intern',internRoute);
+app.use('/company',companyRoute);
+app.use('/auth',authRoute);
 
 app.use((req,res,next)=>{
     const error = new Error('Not Found');
