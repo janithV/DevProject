@@ -1,80 +1,83 @@
-<h1>WSO2</h1>
+<h1>{{company.cname}}</h1>
 <div class="container" id="faqcontainer">
   <div class="row">
     <div class="col-md-6">
-        <div class="row">
-            <h3>About Us</h3>
-            <p>WSO2 solutions give enterprises the flexibility to deploy applications and services on-premises, 
-                on private or public clouds, or in hybrid environments and easily migrate between them as needed. And because 
-                all of the products are pre-integrated, enterprises can focus on value-added services and get to market faster.
-            </p>
-            <p>
-                Apply for carrer paths in Software Engineering, DevOps and Quality Assuarance
-            </p>
-            
+      <div class="row">
+        <h3>About Us</h3>
+        <p>{{company.about}}</p>
+        <div>
+          <p>
+            Apply for carrer paths in:
+          </p>
+          <p *ngFor="let name of hiring">
+            <strong>{{name}}</strong>
+          </p>
+
         </div>
-        <div class="row">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-envelope"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+
+      </div>
+      <div class="row">
+        <div class="social-links">
+          <a href="{{company.fb}}"><i class="fab fa-facebook-f"></i></a>
+          <a href="{{company.twitter}}"><i class="fab fa-twitter"></i></a>
+          <a href="{{company.email}}"><i class="fa fa-envelope"></i></a>
+          <a href="{{company.linkedin}}"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <div class="row">
-          <button type="button" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Apply
-          </button>
-        </div>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-class" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Apply
+        </button>
+      </div>
     </div>
     <div class="col-md-6 text-center">
-      <img src="assets/ws02.jpeg" alt="" srcset="">
+      <img src="{{company.url}}" alt="" srcset="">
     </div>
   </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <form>
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Apply!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col mb-3">
-              <label class="form-label">First Name</label>
-              <input type="text" class="form-control" placeholder="First Name" required>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Apply!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" required>
+              </div>
+              <div class="col mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" required>
+              </div>
             </div>
             <div class="col mb-3">
-              <label class="form-label">Last Name</label>
-              <input type="text" class="form-control" placeholder="Last Name" required>
+              <label class="form-label">Your Email Address</label>
+              <input type="email" class="form-control" placeholder="name@email.com" required>
+            </div>
+            <div class="col mb-3">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="col mb-3">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required
+                placeholder="Write your message here..."></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Attach your CV</label>
+              <input class="form-control" type="file" id="formFile" required>
             </div>
           </div>
-          <div class="col mb-3">
-            <label class="form-label">Your Email Address</label>
-            <input type="email" class="form-control" placeholder="name@email.com" required>
-          </div>
-          <div class="col mb-3">
-            <label class="form-label">Subject</label>
-            <input type="text" class="form-control" placeholder="Subject">
-          </div>
-          <div class="col mb-3">
-            <label class="form-label">Your Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required
-              placeholder="Write your message here..."></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="formFile" class="form-label">Attach your CV</label>
-            <input class="form-control" type="file" id="formFile" required>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-class" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-class" data-bs-dismiss="modal">Submit</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-class" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-class" data-bs-dismiss="modal">Submit</button>
-        </div>
-      </div>
-    </form>
+      </form>
     </div>
   </div>
 
@@ -82,21 +85,15 @@
 </div>
 
 <div id="formcontainer">
-  <h1>Reviews and Ratings</h1>
+  <h1 class="pt-5">Reviews and Ratings</h1>
   <h2>Post a review and share your experience</h2>
   <div class="container" id="formcontainer2">
-    <div
-    fxLayout="row wrap"
-    fxLayout.lt-sm="column" 
-    fxLayoutGap="32px"
-    fxLayoutAlign="flex-start"
-    class="cardlist">
-    
-        <ng-container *ngFor="let num of [1,2,3,4,5,6,7,8]">
-            <app-review-card 
-                fxFlex="1 0 0" >
-            </app-review-card>
-        </ng-container>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start" class="cardlist">
+
+      <ng-container *ngFor="let num of [1,2,3,4,5,6,7,8]">
+        <app-review-card fxFlex="1 0 0">
+        </app-review-card>
+      </ng-container>
     </div>
 
   </div>
@@ -105,26 +102,24 @@
 <div class="container" id="starcontainer">
   <h1>Rate us!</h1>
   <h3>Your ratings will help us create proper recommendations</h3>
-  <div class="star-widget">
-    <input type="radio" name="rate" id="rate-5" >
-    <label for="rate-5" class="fas fa-star"></label>
-    <input type="radio" name="rate" id="rate-4" >
-    <label for="rate-4" class="fas fa-star"></label>
-    <input type="radio" name="rate" id="rate-3" >
-    <label for="rate-3" class="fas fa-star"></label>
-    <input type="radio" name="rate" id="rate-2" >
-    <label for="rate-2" class="fas fa-star"></label>
-    <input type="radio" name="rate" id="rate-1" >
-    <label for="rate-1" class="fas fa-star"></label>
-    
-  </div>
-  <form action="">
+  <form (ngSubmit)="addReview()" #form="ngForm">
+    <div class="star-widget">
+      <input type="radio" name="rate5" id="rate-5" value="5" ngModel>
+      <label for="rate-5" class="fas fa-star"></label>
+      <input type="radio" name="rate4" id="rate-4" value="4" ngModel>
+      <label for="rate-4" class="fas fa-star"></label>
+      <input type="radio" name="rate3" id="rate-3" value="3" ngModel>
+      <label for="rate-3" class="fas fa-star"></label>
+      <input type="radio" name="rate2" id="rate-2" value="2" ngModel>
+      <label for="rate-2" class="fas fa-star"></label>
+      <input type="radio" name="rate" id="rate-1" value="1" ngModel>
+      <label for="rate-1" class="fas fa-star"></label>
+    </div>
     <div class="textarea">
-      <textarea name="" id="" cols="50" placeholder="Describe your experience"></textarea>
+      <textarea name="review" id="" cols="50" placeholder="Describe your experience" ngModel></textarea>
     </div>
     <div>
-      <button type="submit" class="btn btn-class" routerLink="profile">Submit</button>
+      <button type="submit" class="btn btn-class" [disabled]="!form.valid">Submit</button>
     </div>
   </form>
 </div>
-

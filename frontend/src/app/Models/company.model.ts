@@ -1,5 +1,6 @@
 export class Company{
 
+    id:number;
     cname:string;
     email:string;
     password:string;

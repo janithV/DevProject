@@ -4,7 +4,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,7 @@ import { CompanyprofileComponent } from './companyprofile/companyprofile.compone
 import { AuthService } from './auth.service';
 // import { AuthGuard } from './auth-guard.service';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

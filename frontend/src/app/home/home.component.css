@@ -1,39 +1,40 @@
 .home img
 {
     width: 100%;
-    height: 600px;
-    object-position: center;
-    object-fit:cover;
-    filter: blur(4px);
+    padding-top: 50px;
 }
 
 .homecontent
 {
-    position: absolute;
-    align-content: center;
-    top: 40%;
-    left: 40%;
-    margin: -100px 0 0 -200px;
-    font-family: sans-serif;
+    padding-top: 100px;
 }
 
-.homecontent h2
+.homecontent h1
 {
-    text-align: center;
-    font-weight: 600;
-    
+    color: #865496;
+    font-weight: 700;
 }
 
-.homecontent h5
+.homecontent p
 {
-    text-align: center;
-    font-weight: 500;
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 20px;
 }
 
-.btngroup
+.btn
 {
-    position: absolute;
-    top: 100%;
-    left: 39%;
+    border: 2px solid #865496;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 20px;
    
 }
+
+@media only screen and (max-width: 600px) {
+    .homecontent
+{
+    padding-top: 50px;
+}
+  }
+  

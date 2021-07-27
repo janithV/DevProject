@@ -28,6 +28,8 @@ export class AuthService{
         return this.http.post('http://localhost:3000/auth/company-login',{
             email:email,
             password:password
+        },{
+            observe:'response'
         });
        
     }

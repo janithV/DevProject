@@ -11,6 +11,7 @@ router.post('/addintern',(req,res,next)=>{
         email:req.body.email,
         contact:req.body.contact,
         dob:req.body.dob,
+        password:req.body.password,
         gender:req.body.gender,
         university:req.body.university,
         degree:req.body.degree,
@@ -36,6 +37,21 @@ router.post('/addintern',(req,res,next)=>{
         }
     })
     
+});
+
+router.get('/getintern/:internid',(req,res,next)=>{
+    const id = req.params.internid;
+
+    conn.query("SELECT * from intern where internid =?",[id], (err,rows,fields)=>{
+        if(!err){
+            console.log(rows);
+            res.status(200).send(rows);
+        }
+        else{
+            console.log(err);
+        }
+    })
+
 });
 
 module.exports=router;

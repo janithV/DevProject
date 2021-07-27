@@ -8,7 +8,7 @@
 }
 .container{
 	width: auto;
-    height: 80%;
+    /* height: 80%; */
 	margin:auto;
 }
 .row{
@@ -81,8 +81,7 @@ ul{
 }
 
 #logo{
-    margin-top: 25px;
-    margin-left: 20%;
+    float: right;
 }
 
 .row div:last-child{
@@ -102,6 +101,12 @@ ul{
     width: 100%;
 }
 }
+
+@media only screen and (max-width: 600px) {
+    .footer{
+		padding-top: 450px;
+	}
+  }
 
 
 

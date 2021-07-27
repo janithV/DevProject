@@ -125,5 +125,33 @@ router.post('/upload', upload.single('logo'), (req,res,next)=>{
 
 });
 
+router.get('/getcompany/:companyid',(req,res,next)=>{
+    const id = req.params.companyid;
+
+    conn.query("SELECT * from company where companyid =?",[id], (err,rows,fields)=>{
+        if(!err){
+            console.log(rows);
+            res.status(200).send(rows);
+        }
+        else{
+            console.log(err);
+        }
+    })
+
+});
+
+router.get('/getcompanies',(req,res,next)=>{
+
+  conn.query("SELECT * from company", (err,rows,fields)=>{
+      if(!err){
+          console.log(rows);
+          res.status(200).send(rows);
+      }
+      else{
+          console.log(err);
+      }
+  });
+  });
+
 module.exports=router;
 

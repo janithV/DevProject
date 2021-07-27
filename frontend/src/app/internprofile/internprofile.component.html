@@ -3,7 +3,8 @@
         <div class="topbar">
             <button type="submit" class="btn btn-class" routerLink="">Sign out</button>
             <button type="submit" class="btn btn-class" routerLink="contact-us">Support</button>
-            <button type="submit" class="btn btn-class" (click)="onRecommendationsClick()">My Recommendations</button>
+            <button type="submit" class="btn btn-class" routerLink="">Contact Us</button>
+            <button type="submit" class="btn btn-class" routerLink="">Browse</button>
         </div>
         <div class="row">
             <div class="col-md-4 mt-1">
@@ -11,11 +12,11 @@
                     <div class="card-body">
                         <img src="assets/userprofileimg.jpg" alt="" class="rounded-circle" width="150">
                         <div class="mt-3">
-                            <h3>John Doe</h3>
+                            <h3>{{intern.fname}} {{intern.lname}}</h3>
                             <button type="submit" class="btn btn-class" (click)="onHomeClick()">Home</button>
                             <button type="submit" class="btn btn-class" (click)="onRecommendationsClick()">My Recommendations</button>
                             <button type="submit" class="btn btn-class" (click)="onSettingsClick()">Settings</button>
-                            <button type="submit" class="btn btn-class" routerLink="">Sign out</button>
+                            <button type="submit" class="btn btn-class" (click)="onSignoutClick()">Sign out</button>
                         </div>
                     </div>
                 </div>
@@ -28,64 +29,77 @@
                             <div class="col-md-3">
                                 <h5>Full Name</h5>
                             </div>
-                            <div class="col-md-9 text-secondary">John Doe</div>
+                            <div class="col-md-9 text-secondary">{{intern.fname}} {{intern.lname}}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-3">
                                 <h5>Email</h5>
                             </div>
-                            <div class="col-md-9 text-secondary">name@email.com</div>
+                            <div class="col-md-9 text-secondary">{{intern.email}}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-3">
                                 <h5>Contact Number</h5>
                             </div>
-                            <div class="col-md-9 text-secondary">071 111 2121</div>
+                            <div class="col-md-9 text-secondary">{{intern.contact}}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-3">
                                 <h5>University</h5>
                             </div>
-                            <div class="col-md-9 text-secondary">University of Kelaniya</div>
+                            <div class="col-md-9 text-secondary">{{intern.university}}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-3">
-                                <h5>Contact Number</h5>
+                                <h5>Degree</h5>
                             </div>
-                            <div class="col-md-9 text-secondary">B.sc. (Hons) in Management and Information Technology</div>
+                            <div class="col-md-9 text-secondary">{{intern.degree}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Specialization</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">{{intern.specialization}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Skills</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p *ngFor="let skill of skills">{{skill}}</p> 
+                            </div>
                         </div>
                     </div>
                 </div>
+                <ng-container *ngIf="isLoading">
+                    <div style="text-align: center;">
+                        <app-loading-spinner></app-loading-spinner>
+                    </div>
+                </ng-container>
+
                 <ng-container *ngIf="settingClicked == true">
                     <div class="card mb-3 content">
                         <app-signup></app-signup>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="recommendationsClicked == true" >
-                    <div class="card mb-3 content">
-                        <ng-container *ngFor="let num of [1,2,3,4,5,6]">
-                        <app-company-card 
-                        fxFlex="0 1 calc(20% - 32px)"
-                        fxFlex.lt-md="0 1 calc(50% - 32px)"
-                        fxFlex.lt-sm="100%">
-                    </app-company-card>
-                </ng-container>
+                <ng-container *ngIf="recommendationsClicked == true && isLoading==false" >
+                    <div>
+                        <h3>My Recommendations</h3>
                     </div>
-                </ng-container>
-                <ng-container *ngIf="homeClicked == true">
-                    <div class="card mb-3 content">
-                        <ng-container *ngFor="let num of [1,2,3,4,5,6]">
-                            <app-company-card 
-                            fxFlex="0 1 calc(33.3% - 32px)"
-                            fxFlex.lt-md="0 1 calc(50% - 32px)"
-                            fxFlex.lt-sm="100%">
-                        </app-company-card>
+                    <ng-container *ngFor="let company of companies">
+                        <div class="col-md-4 col-lg-4" >
+                            <app-company-card
+                            [companies]="company">
+
+                            </app-company-card>
+                        </div>
                     </ng-container>
-                    </div>
                 </ng-container>
             </div>
         </div>

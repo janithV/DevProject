@@ -1,19 +1,21 @@
 .container{
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    height: 2500px;
+    margin-bottom: 360px;
 }
 
 #formcontainer{
     padding: 30px 0;
-    height: 1000px;
+    height: 1200px;
     background-color:#e0f1ff;
 }
 
 #formcontainer2{
+    border-radius: 45px;
     align-content: center;
-    width: 800px;
     margin-top: 40px;
-    height: 800px;
-    padding: 20px 20px;
+    height: 950px;
+    padding: 40px 40px;
     background-color: white;
     box-shadow: 0 10px 30px 5px rgba(0,0,0,0.5);
 }
@@ -80,3 +82,9 @@ input.ng-invalid.ng-touched{
     color: black;
     background-color:#ffc107 ;
 }
+
+@media only screen and (max-width: 600px) {
+    #formcontainer2{
+        height: 1550px;
+    }
+  }

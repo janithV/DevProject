@@ -4,7 +4,18 @@
     </h2>
 </div>
 <div class="container">
-    <div
+    <div class="row">
+        <ng-container *ngFor="let company of companies">
+            <div class="col-sm-12 col-lg-4" >
+                <app-company-card
+                [companies]="company"
+                [id]="company.id"
+                ></app-company-card>
+            </div>
+        </ng-container>
+        
+    </div>
+    <!-- <div
     fxLayout="row wrap"
     fxLayout.lt-sm="column" 
     fxLayoutGap="32px"
@@ -18,7 +29,7 @@
                 fxFlex.lt-sm="100%">
             </app-company-card>
         </ng-container>
-    </div>
+    </div> -->
 </div>
 
 

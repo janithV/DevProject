@@ -10,11 +10,11 @@ export class User {
     university:string;
     degree:string;
     specialization:string;
-    se:number=0;
-    fe:number=0;
-    be:number=0;
-    fs:number=0;
-    wd:number=0;
-    mad:number=0;
+    se:string="s0";
+    fe:string="f0";
+    be:string="b0";
+    fs:string="fs0";
+    wd:string="wd0";
+    mad:string="md0";
 
 }

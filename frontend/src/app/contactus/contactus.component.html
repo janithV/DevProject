@@ -1,5 +1,6 @@
-<h1 id='faqh1'>Frequently Asked Questions</h1>
+
 <div class="container" id="faqcontainer">
+  <h1 id='faqh1' class="pb-4">Frequently Asked Questions</h1>
   <div class="row">
     <div class="col-md-6">
       <div class="accordion" id="accordionExample">
@@ -7,7 +8,6 @@
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
               aria-expanded="true" aria-controls="collapseOne">
-              Accordion Item #1
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -66,86 +66,44 @@
 </div>
 
 <div id="formcontainer">
-  <h1>Facing A Problem?</h1>
-  <h2>Lets Get In Touch Now</h2>
   <div class="container" id="formcontainer2">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <div class="row">
-      <div class="col mb-3">
-        <label class="form-label">First Name</label>
-        <input type="text" 
-        class="form-control" 
-        placeholder="First Name" 
-        required
-        ngModel
-        name="fname">
-      </div>
-      <div class="col mb-3">
-        <label class="form-label">Last Name</label>
-        <input type="text" 
-        class="form-control" 
-        placeholder="Last Name" 
-        required
-        ngModel
-        name="lname">
-      </div>
-    </div>
-    <div class="col mb-3">
-      <label class="form-label">Your Email Address</label>
-      <input type="email" 
-      class="form-control" 
-      placeholder="name@email.com" 
-      required
-      ngModel
-      email
-      #email="ngModel"
-      name="email">
-      <span class="badge badge-pill badge-warning" *ngIf="!email.valid && email.touched">please enter a valid email</span>
-    </div>
-    <div class="col mb-3">
-      <label class="form-label">Subject</label>
-      <input type="text" 
-      class="form-control" 
-      placeholder="Subject"
-      ngModel
-      name="subject">
-    </div>
-    <div class="col mb-3">
-      <label class="form-label">Your Message</label>
-      <textarea 
-      class="form-control" 
-      id="exampleFormControlTextarea1" 
-      rows="4" 
-      required
-      placeholder="Write your message here..."
-      ngModel
-      name="content"></textarea>
-    </div>
-    <button 
-    type="submit" 
-    class="btn btn-primary"
-    [disabled]="!f.valid">
-      Submit
-    </button>
-  
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Do you want to continue?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="https://mail.google.com" target="_blank" class="btn btn-primary" type="submit">Continue</a>
-          </div>
+    <h1>Facing A Problem?</h1>
+    <h2 class="pb-4">Lets Get In Touch Now</h2>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" placeholder="First Name" required ngModel name="fname">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" placeholder="Last Name" required ngModel name="lname">
         </div>
       </div>
-    </div> -->
-  </form>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <label class="form-label">Your Email Address</label>
+          <input type="email" class="form-control" placeholder="name@email.com" required ngModel email #email="ngModel"
+            name="email">
+          <span class="badge badge-pill badge-warning" *ngIf="!email.valid && email.touched">please enter a valid
+            email</span>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <label class="form-label">Subject</label>
+          <input type="text" class="form-control" placeholder="Subject" ngModel name="subject">
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-12">
+        <label class="form-label">Your Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required
+          placeholder="Write your message here..." ngModel name="content"></textarea>
+      </div>
+    </div>
+      <button type="submit" class="btn" [disabled]="!form.valid">
+        Submit
+      </button>
+
+    </form>
   </div>
 </div>

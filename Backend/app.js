@@ -8,6 +8,9 @@ const browseRoute=require('./api/routes/browse');
 const internRoute=require('./api/routes/intern');
 const companyRoute =require('./api/routes/company');
 const authRoute=require('./api/routes/signin');
+const recommenderRoute=require('./api/routes/recommendations');
+const contactRoute=require('./api/routes/email')
+const reviewRoute=require('./api/routes/rating');
 
 app.use(cors());
 app.use(morgan('dev'));
@@ -18,6 +21,9 @@ app.use('/browse',browseRoute);
 app.use('/intern',internRoute);
 app.use('/company',companyRoute);
 app.use('/auth',authRoute);
+app.use('/recommend',recommenderRoute);
+app.use('/contact',contactRoute);
+app.use('/review',reviewRoute);
 
 app.use((req,res,next)=>{
     const error = new Error('Not Found');

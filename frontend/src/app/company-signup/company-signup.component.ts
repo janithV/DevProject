@@ -171,8 +171,6 @@ export class CompanySignupComponent implements OnInit {
     if(event.path[0].value != this.signUpForm.value.password){
       this.validPassword=true;
     }
- 
-    
   }
 
 }

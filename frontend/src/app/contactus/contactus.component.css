@@ -1,45 +1,12 @@
-h1,h2{
-    text-align: center; 
-    font-family: sans-serif;
-}
-
 h2{
     font-weight: 300;
 }
 
-#faqh1{
-    margin: 50px 0 !important;
+h1{
+    padding-top: 50px;
+    font-weight: 700;
 }
 
-
-#formbg{
-    background-image: url('src/assets/formbg.jpg');
-    background-position: right;
-    background-repeat: no-repeat;
-
-   
-}
-
-#faqcontainer{
-    height: 450px;
-    padding-top: 20px;
-}
-
-#formcontainer{
-    padding: 30px 0;
-    height: 700px;
-    background-color:#e0f1ff;
-}
-
-#formcontainer2{
-    align-content: center;
-    width: 800px;
-    margin-top: 40px;
-    height: 500px;
-    padding: 20px 20px;
-    background-color: white;
-    box-shadow: 0 10px 30px 5px rgba(0,0,0,0.5);
-}
 
 .accordion-item,.accordion-header{
     background: transparent;
@@ -77,14 +44,13 @@ h2{
 
 
 .accordion-body{
-    background:#e0f1ff;
+    background:#F1D2FF;
 }
 
 .accordion-button::before{
     content: '';
     height: 25px;
     width: 25px;
-    position: absolute;
     background: #fff;
     z-index: 1;
     transform: rotate(45deg);
@@ -93,7 +59,7 @@ h2{
 }
 
 img{
-    width: 440px;
+    width: 100%;
     margin-top: 15px;
 }
 
@@ -104,4 +70,11 @@ input.ng-invalid.ng-touched{
 .badge{
     color: black;
     background-color:#ffc107 ;
+}
+
+.btn{
+    border: 2px solid #865496;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 20px;
 }

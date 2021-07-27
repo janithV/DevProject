@@ -1,5 +1,6 @@
 .content{
-    margin: 8%;
+    border-radius: 45px;
+    margin: 5%;
     background-color: #fff;
     font-family: sans-serif;
     box-shadow: 0 10px 30px 5px rgba(0,0,0,0.05);
@@ -11,7 +12,7 @@
 
 
 .signin-text{
-    font-style: normal;
+    color: #865496;
     font-weight: 600 !important;
 
 }
@@ -68,3 +69,11 @@
     background-color: #ab3bd1;
     color: #fff;
 }
+
+@media only screen and (max-width: 600px) {
+    #col2{
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+  }
+

@@ -66,15 +66,16 @@ router.post('/intern-login', (req,res,next)=>{
 
     conn.query("SELECT * from intern where email = ? AND password =? ",[email,password],(err,rows,fields)=>{
         if(!err){
-           // var bool = false;
-            if(rows){
+           console.log("rows :",rows)
+            if(rows.length>=1){
                 for(var i=0; i <rows.length; i++){
                     if(email === rows[i].email && password=== rows[i].password){
+                        console.log("found");
                         //bool=true;
                         const token =jwt.sign({
                             email:rows[i].email,
                             internid:rows[i].internid
-                        }, process.env.JWT_KEY,
+                        }, 'secret',
                         {
                             expiresIn: "1h"
                         }
@@ -85,6 +86,8 @@ router.post('/intern-login', (req,res,next)=>{
                             internid : rows[i].internid,
                             token:token
                         });
+
+                        break;
                     }
                 }
             

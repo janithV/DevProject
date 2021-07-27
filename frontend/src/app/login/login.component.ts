@@ -13,6 +13,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
 
   @ViewChild('form') loginForm:NgForm;
+  companyLoginCheck=false;
 
   constructor(private service:AuthService,private router:Router) { }
 
@@ -22,14 +23,49 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     const email = this.loginForm.value.email;
     const password =  this.loginForm.value.password;
-    const companyLoginCheck = this.loginForm.value.check;
+    this.companyLoginCheck = this.loginForm.value.check;
 
-    if(companyLoginCheck){
+    if(this.companyLoginCheck){
       this.service.companyLogin(email,password).subscribe(responseData =>{
-        console.log(responseData);
-        localStorage.setItem('token',responseData['token']);
-        console.log("after")
-        this.router.navigate(['/companyprofile']);
+        if(responseData.status==200){
+          console.log(responseData);
+          localStorage.setItem('company-token',responseData.body['token']);
+          console.log("after")
+          this.router.navigate(['/companyprofile']);
+        }
+        else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
+        }
+
+      },error=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+        })
+      });
+    }
+    else{
+      this.service.internLogin(email,password).subscribe(responseData =>{
+        if(responseData.status==200){
+          console.log(responseData);
+          console.log(responseData['token'])
+          localStorage.setItem('intern-token',responseData.body['token']);
+          console.log("after")
+          this.router.navigate(['/internprofile']);
+        }
+        else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
+        }
+
       },error=>{
         Swal.fire({
           icon: 'error',

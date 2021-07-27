@@ -1,8 +1,16 @@
 .card{
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
     overflow: hidden;
+    overflow-y: auto;
     border-radius: 15px;
-    width: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 600px;
+    cursor: pointer;
+}
+
+.card::-webkit-scrollbar{
+    display: none;
 }
 
 .img1 img{

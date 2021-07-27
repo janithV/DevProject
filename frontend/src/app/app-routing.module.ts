@@ -11,6 +11,8 @@ import { CompanybrowseComponent } from './companybrowse/companybrowse.component'
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { CompanySignupComponent } from './company-signup/company-signup.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import {CompanyCardComponent} from './company-card/company-card.component';
+import { from } from "rxjs";
 // import { AuthGuard } from "./auth-guard.service";
 
 const appRoutes:Routes=[
@@ -21,7 +23,11 @@ const appRoutes:Routes=[
     { path: 'signup', component:SignupComponent},
     { path: 'company-signup', component:CompanySignupComponent},
     { path: 'companyprofile', component:CompanyprofileComponent},
+    { path: 'internprofile', component:InternprofileComponent},
     { path: 'review', component:ReviewCardComponent},
+    { path: 'view/:id', component:CompanybrowseComponent},
+    { path: 'card', component:CompanyCardComponent}
+
     
 ]
 
