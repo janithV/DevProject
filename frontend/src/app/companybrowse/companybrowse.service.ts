@@ -14,6 +14,16 @@ export class CompanyBrowseService{
 
     }
 
+    getReviews(companyId:number){
+        return this.http.get('http://localhost:3000/review/getratings/'+companyId,
+        {
+            observe:'response'
+        })
+
+    }
+
+
+
     postReview(companyid:number,internid:number,review:string,rating:number){
 
         const reviewObj ={

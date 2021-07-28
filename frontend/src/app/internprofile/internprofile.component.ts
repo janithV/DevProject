@@ -110,7 +110,7 @@ export class InternprofileComponent implements OnInit {
 
         company.id = this.companyResponses[i]['companyid'];
         company.cname = this.companyResponses[i]['name'];
-        company.logo = this.companyResponses[i]['logo'];
+        company.url = this.companyResponses[i]['logo'];
         company.about = this.companyResponses[i]['about'];
         company.fb = this.companyResponses[i]['fb'];
         company.twitter = this.companyResponses[i]['twitter'];

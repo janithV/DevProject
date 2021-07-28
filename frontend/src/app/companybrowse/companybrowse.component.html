@@ -116,10 +116,10 @@
       <label for="rate-1" class="fas fa-star"></label>
     </div>
     <div class="textarea">
-      <textarea name="review" id="" cols="50" placeholder="Describe your experience" ngModel></textarea>
+      <textarea name="review" id="" cols="50" placeholder="Describe your experience" ngModel required></textarea>
     </div>
     <div>
-      <button type="submit" class="btn btn-class" [disabled]="!form.valid">Submit</button>
+      <button type="submit" class="btn btn-class" [disabled]="!form.valid && !isLoggedIn">Submit</button>
     </div>
   </form>
 </div>

@@ -33,5 +33,28 @@ router.post('/addreview',(req,res,next)=>{
     })
 });
 
+router.get('/getratings/:companyid',(req,res,next)=>{
+    const id = req.params.companyid;
+
+    conn.query("SELECT * from rating where companyid =?",[id], (err,rows,fields)=>{
+        if(!err){
+            if(rows){
+                console.log(rows);
+                res.status(200).send(rows);
+            }
+            else{
+                res.status(204).json({
+                    message:"No reviews found"
+                });
+            }
+            
+        }
+        else{
+            console.log(err);
+        }
+    })
+
+});
+
 
 module.exports=router;

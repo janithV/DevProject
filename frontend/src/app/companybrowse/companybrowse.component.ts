@@ -17,10 +17,16 @@ export class CompanybrowseComponent implements OnInit {
   company = new Company();
   hiring:string[]=[];
   rating:number;
+  isLoggedIn:boolean=false;
+  token:any;
   @ViewChild('form') reviewForm:NgForm;
   constructor(private router:ActivatedRoute,private service:CompanyBrowseService) { }
 
   ngOnInit(): void {
+    this.token=localStorage.getItem('intern-token');
+    if(this.token !=null){
+      this.isLoggedIn=true;
+    }
     this.companyid=this.router.snapshot.params['id']
 
     this.service.getCompanyDetails(this.companyid).subscribe(responseData =>{
@@ -70,39 +76,58 @@ export class CompanybrowseComponent implements OnInit {
 
       console.log(this.hiring);
     });
+
+    this.service.getReviews(this.companyid).subscribe(responseData=>{
+      if(responseData.status==200){
+
+      }
+      if(responseData.status==204){
+
+      }
+    });
+
   }
 
   addReview(){
-    const jwt = localStorage.getItem('intern-token');
-    const internid=jwtDecode(jwt)['internid'];
-    console.log(internid);
-    const message = this.reviewForm.value.review;
-
-    if(this.reviewForm.value.rate=="1"){
-      this.rating=1;
-    }
-    if(this.reviewForm.value.rate2=="2"){
-      this.rating=2;
-    }
-    if(this.reviewForm.value.rate3=="3"){
-      this.rating=3;
-    }
-    if(this.reviewForm.value.rate4=="4"){
-      this.rating=4;
-    }
-    if(this.reviewForm.value.rate5=="5"){
-      this.rating=5;
-    }
-
-    this.service.postReview(this.companyid,internid,message,this.rating).subscribe(responseData=>{
-      if(responseData.status==200){
-        Swal.fire(
-          'Thank you!',
-          'Your Review was recceived!',
-          'success'
-        )
+    if(this.isLoggedIn){
+      const jwt = localStorage.getItem('intern-token');
+      const internid=jwtDecode(jwt)['internid'];
+      console.log(internid);
+      const message = this.reviewForm.value.review;
+  
+      if(this.reviewForm.value.rate=="1"){
+        this.rating=1;
       }
-    });
+      if(this.reviewForm.value.rate2=="2"){
+        this.rating=2;
+      }
+      if(this.reviewForm.value.rate3=="3"){
+        this.rating=3;
+      }
+      if(this.reviewForm.value.rate4=="4"){
+        this.rating=4;
+      }
+      if(this.reviewForm.value.rate5=="5"){
+        this.rating=5;
+      }
+  
+      this.service.postReview(this.companyid,internid,message,this.rating).subscribe(responseData=>{
+        if(responseData.status==200){
+          Swal.fire(
+            'Thank you!',
+            'Your Review was recceived!',
+            'success'
+          )
+        }
+      });
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'NOT LOGGED IN!',
+        text: 'Please log in to post review!'
+      })
+    }
 
     
   }

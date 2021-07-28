@@ -23,7 +23,7 @@ router.get('/:userId',(req,res,next)=>{
         let ratingsarr=[];
         for(x in body){
             // console.log(body[x]);
-            rdbconn.query("SELECT *from ratings where userid = ?",[body[x]],(error,rows,fields)=>{
+            rdbconn.query("SELECT * from ratings where userid = ?",[body[x]],(error,rows,fields)=>{
                 if(!error){
                     if(rows){
                         for(var i=0; i <rows.length; i++){
@@ -57,6 +57,7 @@ router.get('/:userId',(req,res,next)=>{
                 }
             }
             var  queryData=[uniqueArray];
+            console.log("array:",queryData);
 
             edbconn.query("SELECT * from company where companyid in (?)",queryData, (err,rows,fields)=>{
                 if(!err){

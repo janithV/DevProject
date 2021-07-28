@@ -37,11 +37,11 @@ cosineSimalirity = cosine_similarity(count_matrix)
 print(cosineSimalirity)
 
 print("")
-newUserId="UID56"
+newUserId="UID965"
 user_index=get_index_from_userid(newUserId)
 print (user_index)
 
-similar_users=list(enumerate(cosineSimalirity[user_index]))
+similar_users=list(enumerate(cosineSimalirity[user_index-1]))
 sorted_similar_users= sorted(similar_users,key=lambda x:x[1], reverse=True)
 
 print("")
